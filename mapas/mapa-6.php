@@ -106,7 +106,7 @@ $contadores = contarMarcadores($client->appexacta->encuesta2f, $nameMapa, $lInf,
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item ">
-                            <a class="nav-link" href="../index.html">Inicio <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="../index.php">Inicio <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="../mapa.php?mostrar_todo=ok">Censo</a>
