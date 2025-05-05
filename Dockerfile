@@ -2,7 +2,7 @@
 FROM php:8.2-apache
 
 # Copia todos los archivos a la carpeta pública de Apache
-COPY . /var/www/html/PuertoLimonVinculacion
+COPY . /var/www/html/
 
 # Habilita las extensiones necesarias
 RUN docker-php-ext-install mysqli
