@@ -29,7 +29,7 @@ use function current;
 use function is_array;
 use function is_bool;
 use function is_integer;
-use function is_object;
+use function MongoDB\is_document;
 
 /**
  * Wrapper for the ListDatabases command.
@@ -39,8 +39,7 @@ use function is_object;
  */
 class ListDatabases implements Executable
 {
-    /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a listDatabases command.
@@ -76,8 +75,8 @@ class ListDatabases implements Executable
             throw InvalidArgumentException::invalidType('"authorizedDatabases" option', $options['authorizedDatabases'], 'boolean');
         }
 
-        if (isset($options['filter']) && ! is_array($options['filter']) && ! is_object($options['filter'])) {
-            throw InvalidArgumentException::invalidType('"filter" option', $options['filter'], ['array', 'object']);
+        if (isset($options['filter']) && ! is_document($options['filter'])) {
+            throw InvalidArgumentException::expectedDocumentType('"filter" option', $options['filter']);
         }
 
         if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
@@ -99,12 +98,11 @@ class ListDatabases implements Executable
      * Execute the operation.
      *
      * @see Executable::execute()
-     * @param Server $server
      * @return array An array of database info structures
      * @throws UnexpectedValueException if the command response was malformed
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    public function execute(Server $server)
+    public function execute(Server $server): array
     {
         $cursor = $server->executeReadCommand('admin', $this->createCommand(), $this->createOptions());
         $cursor->setTypeMap(['root' => 'array', 'document' => 'array']);
@@ -119,10 +117,8 @@ class ListDatabases implements Executable
 
     /**
      * Create the listDatabases command.
-     *
-     * @return Command
      */
-    private function createCommand()
+    private function createCommand(): Command
     {
         $cmd = ['listDatabases' => 1];
 
@@ -146,9 +142,8 @@ class ListDatabases implements Executable
      * the command be executed on the primary.
      *
      * @see https://php.net/manual/en/mongodb-driver-server.executecommand.php
-     * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

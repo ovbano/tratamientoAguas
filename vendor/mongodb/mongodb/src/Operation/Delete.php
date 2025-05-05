@@ -29,6 +29,7 @@ use MongoDB\Exception\UnsupportedException;
 use function is_array;
 use function is_object;
 use function is_string;
+use function MongoDB\is_document;
 use function MongoDB\is_write_concern_acknowledged;
 use function MongoDB\server_supports_feature;
 
@@ -43,23 +44,18 @@ use function MongoDB\server_supports_feature;
  */
 class Delete implements Executable, Explainable
 {
-    /** @var integer */
-    private static $wireVersionForHint = 9;
+    private const WIRE_VERSION_FOR_HINT = 9;
 
-    /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
-    /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array|object */
     private $filter;
 
-    /** @var integer */
-    private $limit;
+    private int $limit;
 
-    /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a delete command.
@@ -97,18 +93,18 @@ class Delete implements Executable, Explainable
      * @param array        $options        Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, $limit, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, $filter, int $limit, array $options = [])
     {
-        if (! is_array($filter) && ! is_object($filter)) {
-            throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');
+        if (! is_document($filter)) {
+            throw InvalidArgumentException::expectedDocumentType('$filter', $filter);
         }
 
         if ($limit !== 0 && $limit !== 1) {
             throw new InvalidArgumentException('$limit must be 0 or 1');
         }
 
-        if (isset($options['collation']) && ! is_array($options['collation']) && ! is_object($options['collation'])) {
-            throw InvalidArgumentException::invalidType('"collation" option', $options['collation'], 'array or object');
+        if (isset($options['collation']) && ! is_document($options['collation'])) {
+            throw InvalidArgumentException::expectedDocumentType('"collation" option', $options['collation']);
         }
 
         if (isset($options['hint']) && ! is_string($options['hint']) && ! is_array($options['hint']) && ! is_object($options['hint'])) {
@@ -123,16 +119,16 @@ class Delete implements Executable, Explainable
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
-        if (isset($options['let']) && ! is_array($options['let']) && ! is_object($options['let'])) {
-            throw InvalidArgumentException::invalidType('"let" option', $options['let'], 'array or object');
+        if (isset($options['let']) && ! is_document($options['let'])) {
+            throw InvalidArgumentException::expectedDocumentType('"let" option', $options['let']);
         }
 
         if (isset($options['writeConcern']) && $options['writeConcern']->isDefault()) {
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = $databaseName;
+        $this->collectionName = $collectionName;
         $this->filter = $filter;
         $this->limit = $limit;
         $this->options = $options;
@@ -142,7 +138,6 @@ class Delete implements Executable, Explainable
      * Execute the operation.
      *
      * @see Executable::execute()
-     * @param Server $server
      * @return DeleteResult
      * @throws UnsupportedException if hint or write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
@@ -153,7 +148,7 @@ class Delete implements Executable, Explainable
          * unacknowledged write concern on an unsupported server. */
         if (
             isset($this->options['writeConcern']) && ! is_write_concern_acknowledged($this->options['writeConcern']) &&
-            isset($this->options['hint']) && ! server_supports_feature($server, self::$wireVersionForHint)
+            isset($this->options['hint']) && ! server_supports_feature($server, self::WIRE_VERSION_FOR_HINT)
         ) {
             throw UnsupportedException::hintNotSupported();
         }
@@ -175,15 +170,18 @@ class Delete implements Executable, Explainable
      * Returns the command document for this operation.
      *
      * @see Explainable::getCommandDocument()
-     * @param Server $server
      * @return array
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument()
     {
         $cmd = ['delete' => $this->collectionName, 'deletes' => [['q' => $this->filter] + $this->createDeleteOptions()]];
 
-        if (isset($this->options['writeConcern'])) {
-            $cmd['writeConcern'] = $this->options['writeConcern'];
+        if (isset($this->options['comment'])) {
+            $cmd['comment'] = $this->options['comment'];
+        }
+
+        if (isset($this->options['let'])) {
+            $cmd['let'] = (object) $this->options['let'];
         }
 
         return $cmd;
@@ -214,10 +212,8 @@ class Delete implements Executable, Explainable
      *
      * Note that these options are different from the bulk write options, which
      * are created in createExecuteOptions().
-     *
-     * @return array
      */
-    private function createDeleteOptions()
+    private function createDeleteOptions(): array
     {
         $deleteOptions = ['limit' => $this->limit];
 
@@ -236,9 +232,8 @@ class Delete implements Executable, Explainable
      * Create options for executing the bulk write.
      *
      * @see https://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
-     * @return array
      */
-    private function createExecuteOptions()
+    private function createExecuteOptions(): array
     {
         $options = [];
 

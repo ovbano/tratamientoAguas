@@ -30,23 +30,18 @@ use function is_array;
 /**
  * Operation for the collMod command.
  *
- * @api
  * @see \MongoDB\Database::modifyCollection()
  * @see https://mongodb.com/docs/manual/reference/command/collMod/
  */
 class ModifyCollection implements Executable
 {
-    /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
-    /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
-    /** @var array */
-    private $collectionOptions;
+    private array $collectionOptions;
 
-    /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a collMod command.
@@ -70,7 +65,7 @@ class ModifyCollection implements Executable
      * @param array  $options           Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, array $collectionOptions, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, array $collectionOptions, array $options = [])
     {
         if (empty($collectionOptions)) {
             throw new InvalidArgumentException('$collectionOptions is empty');
@@ -92,8 +87,8 @@ class ModifyCollection implements Executable
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = $databaseName;
+        $this->collectionName = $collectionName;
         $this->collectionOptions = $collectionOptions;
         $this->options = $options;
     }
@@ -102,7 +97,6 @@ class ModifyCollection implements Executable
      * Execute the operation.
      *
      * @see Executable::execute()
-     * @param Server $server
      * @return array|object Command result document
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
@@ -132,9 +126,8 @@ class ModifyCollection implements Executable
      * Create options for executing the command.
      *
      * @see https://php.net/manual/en/mongodb-driver-server.executewritecommand.php
-     * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

@@ -26,14 +26,12 @@ use MongoDB\Exception\UnsupportedException;
 /**
  * Operation for deleting multiple document with the delete command.
  *
- * @api
  * @see \MongoDB\Collection::deleteOne()
  * @see https://mongodb.com/docs/manual/reference/command/delete/
  */
 class DeleteMany implements Executable, Explainable
 {
-    /** @var Delete */
-    private $delete;
+    private Delete $delete;
 
     /**
      * Constructs a delete command.
@@ -68,7 +66,7 @@ class DeleteMany implements Executable, Explainable
      * @param array        $options        Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, $filter, array $options = [])
     {
         $this->delete = new Delete($databaseName, $collectionName, $filter, 0, $options);
     }
@@ -77,7 +75,6 @@ class DeleteMany implements Executable, Explainable
      * Execute the operation.
      *
      * @see Executable::execute()
-     * @param Server $server
      * @return DeleteResult
      * @throws UnsupportedException if collation is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
@@ -91,11 +88,10 @@ class DeleteMany implements Executable, Explainable
      * Returns the command document for this operation.
      *
      * @see Explainable::getCommandDocument()
-     * @param Server $server
      * @return array
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument()
     {
-        return $this->delete->getCommandDocument($server);
+        return $this->delete->getCommandDocument();
     }
 }

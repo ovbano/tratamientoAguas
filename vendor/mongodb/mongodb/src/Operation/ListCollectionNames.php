@@ -27,14 +27,12 @@ use MongoDB\Model\CallbackIterator;
 /**
  * Operation for the listCollectionNames helper.
  *
- * @api
  * @see \MongoDB\Database::listCollectionNames()
  * @see https://mongodb.com/docs/manual/reference/command/listCollections/
  */
 class ListCollectionNames implements Executable
 {
-    /** @var ListCollectionsCommand */
-    private $listCollections;
+    private ListCollectionsCommand $listCollections;
 
     /**
      * Constructs a listCollections command.
@@ -61,7 +59,7 @@ class ListCollectionNames implements Executable
      * @param array  $options      Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, array $options = [])
+    public function __construct(string $databaseName, array $options = [])
     {
         $this->listCollections = new ListCollectionsCommand($databaseName, ['nameOnly' => true] + $options);
     }
@@ -70,7 +68,6 @@ class ListCollectionNames implements Executable
      * Execute the operation.
      *
      * @see Executable::execute()
-     * @param Server $server
      * @return Iterator
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
@@ -78,9 +75,7 @@ class ListCollectionNames implements Executable
     {
         return new CallbackIterator(
             $this->listCollections->execute($server),
-            function (array $collectionInfo) {
-                return $collectionInfo['name'];
-            }
+            fn (array $collectionInfo): string => (string) $collectionInfo['name'],
         );
     }
 }

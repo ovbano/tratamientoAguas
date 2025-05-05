@@ -28,14 +28,12 @@ use MongoDB\Model\DatabaseInfoLegacyIterator;
 /**
  * Operation for the ListDatabases command.
  *
- * @api
  * @see \MongoDB\Client::listDatabases()
  * @see https://mongodb.com/docs/manual/reference/command/listDatabases/#mongodb-dbcommand-dbcmd.listDatabases`
  */
 class ListDatabases implements Executable
 {
-    /** @var ListDatabasesCommand */
-    private $listDatabases;
+    private ListDatabasesCommand $listDatabases;
 
     /**
      * Constructs a listDatabases command.
@@ -70,7 +68,6 @@ class ListDatabases implements Executable
      * Execute the operation.
      *
      * @see Executable::execute()
-     * @param Server $server
      * @return DatabaseInfoIterator
      * @throws UnexpectedValueException if the command response was malformed
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)

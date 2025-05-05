@@ -27,20 +27,21 @@ use function current;
 /**
  * Operation for finding a single document with the find command.
  *
- * @api
  * @see \MongoDB\Collection::findOne()
  * @see https://mongodb.com/docs/manual/tutorial/query-documents/
  * @see https://mongodb.com/docs/manual/reference/operator/query-modifier/
  */
 class FindOne implements Executable, Explainable
 {
-    /** @var Find */
-    private $find;
+    private Find $find;
 
     /**
      * Constructs a find command for finding a single document.
      *
      * Supported options:
+     *
+     *  * codec (MongoDB\Codec\DocumentCodec): Codec used to decode documents
+     *    from BSON to PHP objects.
      *
      *  * collation (document): Collation specification.
      *
@@ -103,13 +104,13 @@ class FindOne implements Executable, Explainable
      * @param array        $options        Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, $filter, array $options = [])
     {
         $this->find = new Find(
             $databaseName,
             $collectionName,
             $filter,
-            ['limit' => 1] + $options
+            ['limit' => 1] + $options,
         );
     }
 
@@ -117,7 +118,6 @@ class FindOne implements Executable, Explainable
      * Execute the operation.
      *
      * @see Executable::execute()
-     * @param Server $server
      * @return array|object|null
      * @throws UnsupportedException if collation or read concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
@@ -134,11 +134,10 @@ class FindOne implements Executable, Explainable
      * Returns the command document for this operation.
      *
      * @see Explainable::getCommandDocument()
-     * @param Server $server
      * @return array
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument()
     {
-        return $this->find->getCommandDocument($server);
+        return $this->find->getCommandDocument();
     }
 }

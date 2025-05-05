@@ -18,7 +18,6 @@
 namespace MongoDB\Model;
 
 use IteratorIterator;
-use ReturnTypeWillChange;
 use Traversable;
 
 /**
@@ -31,16 +30,14 @@ use Traversable;
  * @see \MongoDB\Database::listCollections()
  * @see https://github.com/mongodb/specifications/blob/master/source/enumerate-collections.rst
  * @see https://mongodb.com/docs/manual/reference/command/listCollections/
+ * @template-extends IteratorIterator<int, array, Traversable<int, array>>
  */
 class CollectionInfoCommandIterator extends IteratorIterator implements CollectionInfoIterator
 {
-    /** @var string|null */
-    private $databaseName;
+    private ?string $databaseName = null;
 
-    /**
-     * @param string|null $databaseName
-     */
-    public function __construct(Traversable $iterator, $databaseName = null)
+    /** @param Traversable<int, array> $iterator */
+    public function __construct(Traversable $iterator, ?string $databaseName = null)
     {
         parent::__construct($iterator);
 
@@ -52,10 +49,8 @@ class CollectionInfoCommandIterator extends IteratorIterator implements Collecti
      *
      * @see CollectionInfoIterator::current()
      * @see https://php.net/iterator.current
-     * @return CollectionInfo
      */
-    #[ReturnTypeWillChange]
-    public function current()
+    public function current(): CollectionInfo
     {
         $info = parent::current();
 

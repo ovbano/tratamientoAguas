@@ -25,19 +25,12 @@ use MongoDB\Exception\BadMethodCallException;
  */
 class InsertManyResult
 {
-    /** @var WriteResult */
-    private $writeResult;
+    private WriteResult $writeResult;
 
-    /** @var mixed[] */
-    private $insertedIds;
+    private array $insertedIds;
 
-    /** @var boolean */
-    private $isAcknowledged;
+    private bool $isAcknowledged;
 
-    /**
-     * @param WriteResult $writeResult
-     * @param mixed[]     $insertedIds
-     */
     public function __construct(WriteResult $writeResult, array $insertedIds)
     {
         $this->writeResult = $writeResult;
@@ -51,8 +44,8 @@ class InsertManyResult
      * This method should only be called if the write was acknowledged.
      *
      * @see InsertManyResult::isAcknowledged()
-     * @return integer
-     * @throws BadMethodCallException is the write result is unacknowledged
+     * @return integer|null
+     * @throws BadMethodCallException if the write result is unacknowledged
      */
     public function getInsertedCount()
     {
@@ -72,7 +65,7 @@ class InsertManyResult
      * field value. Any driver-generated ID will be a MongoDB\BSON\ObjectId
      * instance.
      *
-     * @return mixed[]
+     * @return array
      */
     public function getInsertedIds()
     {
