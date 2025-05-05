@@ -1,5 +1,5 @@
 # Usa una imagen oficial de PHP con Apache
-FROM php:8.2-apache
+FROM php:7.4-apache
 
 # Copia todos los archivos a la carpeta pública de Apache
 COPY . /var/www/html/
