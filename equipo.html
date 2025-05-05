@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/logo.png" />
+    <meta name="theme-color" content="#000000" />
+    <title>Contactos</title>
+
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="css/encabezado.css">
+    <style type="text/css">
+
+        .image-container {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 10%;
+        padding-right: 1%;
+        }
+
+        @media (max-width: 767px) {
+            .image-container {
+            display: none;
+            }
+        }
+
+
+        .h2s {
+            font-size: 3vh;
+        }
+
+        .centrado {
+            text-align: center;
+        }
+
+        .navbar-nav li:hover>ul.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu>.dropdown-menu {
+            top: 0;
+            left: -95%;
+            margin-top: 3px;
+        }
+
+        .navbar-nav li:hover > .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+        }
+
+        /*girar el símbolo de intercalación al pasar el mouse*/
+        .dropdown-menu>li>a:hover:after {
+            text-decoration: underline;
+            transform: rotate(-90deg);
+        }
+        .nombre-fase {
+  text-align: left;
+  padding: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: left;
+  font-weight: bold;
+}
+
+.contenedor{
+  padding:20px;
+  display: grid;
+}
+
+.titulo{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.bio{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  background-color: #212529;
+  color: white;
+}
+
+.itin{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  background-color: #212529;
+  color: white;
+}
+
+.tipo-desarrollador{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 12.5px;
+  font-weight: bold;
+}
+
+.semestre{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.segunda-fase {
+  display: flex;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 17%;
+  /* justify-content: center; */
+  background-color: #bfddc7;
+  padding: 30px;
+}
+
+.desarrollador{
+  align-items: center;
+}
+
+.foto-desarrollador{
+  justify-content: center;
+}
+
+.foto {
+  border-radius: 100px;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 8px 6px -6px black;
+  
+}
+
+.info-desarrollador {
+  text-align: center;
+  color: white;
+}
+
+.contact{
+  position: relative;
+  width: 100%;
+  color:#FFF; 
+  text-align:center;
+  bottom:0px;
+  margin-bottom: 0px;
+}
+
+.encuestadores{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+.encuestadores-fase1{
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  column-gap: 1%;
+  row-gap: 60px ;
+  justify-content: center;
+  background-color: #bfddc7;
+  padding: 30px;
+}
+
+.Katherin{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 14%;
+  justify-content: center;
+  background-color: #F1F1F1;
+  padding: 30px;
+}
+
+@media only screen and (min-width: 200px) {
+  .nombre-fase {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      text-align: center;
+  }
+
+  .segunda-fase {
+      grid-template-columns: repeat(1, auto);
+      justify-content: center;
+      row-gap: 60px;
+  }
+
+  .encuestadores-fase1{
+      grid-template-columns: repeat(1, auto);
+      justify-content: center;
+      row-gap: 60px;
+  }
+
+  .Katherin{
+      grid-template-columns: repeat(1, auto);
+      justify-content: center;
+      row-gap: 60px;
+  }
+
+  .encuestadores{
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      text-align: center;
+  }
+
+  .foto-desarrollador{
+      text-align: center;
+  }
+}
+
+@media (min-width: 800px) {
+  .segunda-fase {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      column-gap: 20%;
+      row-gap: 60px;
+      justify-content: center;
+      background-color: #bfddc7;
+      padding: 30px;
+  }
+
+  .encuestadores-fase1{
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      column-gap: 12%;
+      row-gap: 60px ;
+      justify-content: center;
+      background-color: rgb(46, 175, 109);
+      padding: 30px;
+  }
+  
+  .Katherin{
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      column-gap: 12%;
+      justify-content: center;
+      background-color: #F1F1F1;
+      padding: 30px;
+  }
+
+  .encuestadores{
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      text-align: left;
+      padding: 10px;
+  }
+
+  .foto-desarrollador{
+      text-align: center;
+  }
+
+  .nombre-fase {
+      text-align: left;
+      padding: 10px;
+      font-family: 'Times New Roman', Times, serif;
+      text-align: left;
+      font-weight: bold;
+  }
+
+    a {
+     text-decoration: none;
+    }
+  
+}
+
+.contact {
+  position: relative;
+  width: 100%;
+  color: #FFF;
+  text-align: center;
+  bottom: 0px;
+  margin-bottom: 0px;
+}
+
+
+
+
+    </style>
+</head>
+<body style="background-color:rgb(46, 175, 109)">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid" style="margin-left: 10px;">
+                <a class="navbar-brand" href="https://santodomingo.espe.edu.ec/ingenieria-en-biotecnologia/">
+                    <img
+                        src="./img/SantoDomingo1.png" class="img-fluid" width="350">
+                    <img style="padding-left: 20px;"
+                        src="./img/logo2sinfondo.png" class="img-fluid" width="115">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07"
+                    aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample07" style="flex-grow: 0; padding-right: 10px;">
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./mapa.php?mostrar_todo=ok">Censo</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Resultados
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="./norma.html">Norma INEN 1108</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./registros.php?mostrar_todo=ok">Registros</a></li>
+                        
+                                <!-- Fase 1 -->
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Fase 1</a>
+                                    <ul class="dropdown-menu">
+                                        <!-- Microbiológico (Fase 1) -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Microbiológico</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="./mapas/mapa-2.php">Coliformes totales</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Fisico Químico (Fase 1) -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Fisico Químico</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="./mapas/mapa-3.php">pH</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-4.php">Turbiedad</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-5.php">Color</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-6.php">Cloro libre residual</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-9.php">Nitratos</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-10.php">Nitritos</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                        
+                                <!-- Fase 2 -->
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Fase 2</a>
+                                    <ul class="dropdown-menu">
+                                        <!-- Microbiológico (Fase 2) -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Microbiológico</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="./mapas/mapa-2-fase2.php">Coliformes totales</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Fisico Químico (Fase 2) -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Fisico Químico</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="./mapas/mapa-3-fase2.php">pH</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-4-fase2.php">Turbiedad</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-5-fase2.php">Color</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-6-fase2.php">Cloro libre residual</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-9-fase2.php">Nitratos</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-10-fase2.php">Nitritos</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="./equipo.html">Equipo</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+            </div>
+        </nav>
+        
+    </header>
+    
+    <div class="titulo" style="padding-top: 25px;">
+        <h1 class="itin bg-dark" >Estudiantes de Biotecnología</h1><br>
+    </div>
+    <div class="contenedor">
+        <h2 class="bio bg-dark" style="text-align: left;">Encuestadores</h2>
+        <div class="encuestadores-fase1">
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Alejandro Paredes.jpeg" alt="Angela Verduga">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Alejandro Paredes</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Alex Catagua.jpeg" alt="Karen Sosa">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Alex Catagua</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Angie Bedoya.jpeg" alt="Alisson Abarca">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Angie Bedoya</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/CARLOS PUERRES.jpeg" alt="Solange Bermeo">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Carlos Puerres</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Christopher Cuenca.jpeg" alt="Margarita Narvaez">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Christopher Cuenca</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Gema Ferrin.jpeg" alt="Jessica Lapo">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Gema Ferrin</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Gisela Gordillo.jpeg" alt="Jorge Alvear">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Gisela Gordillo</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Jessey Veronica Garcia Velasquez.jpeg" alt="Ivonne Herrera">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Jessey Garcia</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Joel Campos.jpeg" alt="Margarita Narvaez">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Joel Campos</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Johanna Criollo.jpeg" alt="Jessica Lapo">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Johanna Criollo</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Joseth Garcia.jpeg" alt="Jorge Alvear">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Joseth Garcia</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Kerly Mendoza.jpeg" alt="Ivonne Herrera">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Kerly Mendoza</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Mery Calazacon.jpeg" alt="Ivonne Herrera">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Mery Calazacon</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Michelle Hinojosa.jpeg" alt="Ivonne Herrera">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Michelle Hinojosa</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Nestor Guillen.jpeg" alt="Ivonne Herrera">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Nestor Guillen</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Noemi Chumania.jpeg" alt="Ivonne Herrera">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Noemi Chumania</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Salazar Canchala Melanie Maylen.jpeg" alt="Ivonne Herrera">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Melanie Salazar</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Tapia Paola.jpeg" alt="Ivonne Herrera">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Paola Tapia</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Victor Tufinio.jpeg" alt="Ivonne Herrera">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Victor Tufiño</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="encuestadores/Wendy Rubio.jpeg" alt="Ivonne Herrera">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Wendy Rubio</h4>
+                    
+                </div>
+            </div>
+        </div>
+
+        <h2 class="bio bg-dark" style="text-align: left;">Analistas</h2>
+
+        <div class="encuestadores-fase1">
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Alejandro Patinio.jpg" alt="Edgar Cedeño">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Alejandro Patiño</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Alex Benalcazar.jpg" alt="Edwin Tapia">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Alex Benalcazar</h4>
+                    
+                </div>
+            </div>
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Alexander Loor.jpg" alt="Diego Carvajal">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Alexander Loor</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Alisson Moreno.jpg" alt="Adriana Cajamarca">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Alisson Moreno</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Arianna Vargas.jpg" alt="Angie Iguasni">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Arianna Vargas</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Carlos Cuaran.jpg" alt="Evelyn Serpa">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Carlos Cuaran</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/David Cedillo.jpg" alt="Alejandra Saavedra">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>David Cedillo</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Diego Simbania.jpg" alt="Ana Cobos">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Diego Simbaña</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Ericka Caicedo.jpg" alt="Jazmin Proaño">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Ericka Caicedo</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Geanella Barragan.jpg" alt="Littsay Alcivar">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Geanella Barragan</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Genesis Barreto.jpg" alt="Sebastian Parrales">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Genesis Barreto</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Lady Jaramillo.jpg" alt="Brandon Viteri">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Lady Jaramillo</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Lenin Calazacon.jpg" alt="Marcelo Ponce">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Lenin Calazacon</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Luis Bravo.jpg" alt="Oswaldo Plua">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Luis Bravo</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Mikel Farias.jpg" alt="Nahir Tandazo">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Mikel Farias</h4>
+                    
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="analistas/Nathaly Monta.jpg" alt="Diana Macías">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Nathaly Monta</h4>
+                    
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        
+        <h1 class="itin bg-dark" >Estudiantes de ITIN</h1>
+        <br>
+        <br>
+        <h2 class="bio bg-dark" style="text-align: left;">Desarrolladores</h2>
+        <div class="segunda-fase" style="background-color:rgb(46, 175, 109)">
+
+            <div class="desarrollador" >
+                <div class="foto-desarrollador">
+                    <img class="foto" src="img/Joan.jpeg" alt="Ariel Castillo">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Joan Cevallos</h4>
+                    
+                    <h6 class="tipo-desarrollador">Desarrollador Móvil</h6>
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="img/1.jpeg" alt="Victoria Mendoza">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Roger Santos</h4>
+                    
+                    <h6 class="tipo-desarrollador">Desarrollador Web</h6>
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="img/johana salazar.jpg" alt="Bismark Castro">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Johana Salazar</h4>
+                    
+                    <h6 class="tipo-desarrollador">Desarrollador Web</h6>
+                </div>
+            </div>
+
+            <div class="desarrollador">
+                <div class="foto-desarrollador">
+                    <img class="foto" src="img/Oswlado Banio.jpeg" alt="Valentin Guerrero">
+                </div>
+                <br>
+                <div class="info-desarrollador">
+                    <h4>Oswaldo Baño</h4>
+                    
+                    <h6 class="tipo-desarrollador">Desarrollador Web</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    </main>
+    <div class="bg-dark centrado"></div>
+
+    <br>
+    <br>
+
+    <div id="footer"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+
+    <script>
+        $(function(){
+        $("#footer").load("footer.html"); 
+        });
+    </script> 
+</body>
+
+</html>

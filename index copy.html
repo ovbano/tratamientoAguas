@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
+    <style>
+        
+        .navbar-nav li:hover>ul.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu>.dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -6px;
+        }
+
+        /*girar el símbolo de intercalación al pasar el mouse*/
+        .dropdown-menu>li>a:hover:after {
+            text-decoration: underline;
+            transform: rotate(-90deg);
+        }
+        
+        .image-container {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 10%;
+        padding-right: 1%;
+        }
+
+        @media (max-width: 767px) {
+            .image-container {
+            display: none;
+            }
+        }
+       
+    </style>
+
+    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid" style="margin-left: 10px;">
+                <a class="navbar-brand" href="https://santodomingo.espe.edu.ec/ingenieria-en-biotecnologia/"><img
+                        src="./img/SantoDomingo1.png" class="img-fluid" width="350"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07"
+                    aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse " id="navbarsExample07" style="flex-grow: 0;">
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./mapa.php?mostrar_todo=ok">Censo</a>
+                        </li>
+
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Resultados
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item " href="./norma.html">Norma INEN 1108</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./registros.php?mostrar_todo=ok">Registros</a></li>
+
+                                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Microbiológico</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="./mapas/mapa-2.php">Coliformes totales</a></li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Fisico
+                                        Químico</a>
+                                    <ul class="dropdown-menu">
+
+                                                <li><a class="dropdown-item" href="./mapas/mapa-3.php">pH</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-4.php">Turbiedad</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-5.php">Color</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-6.php">Cloro libre residual</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-9.php">Nitratos</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-10.php">Nitritos</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./equipo.html">Equipo</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="image-container">
+                    <a style="padding-right: 30px;" href="https://dece.espe.edu.ec/"><img 
+                        src="./img/logoexactas.png"  width="105"></a>
+        
+                <!--
+                    <a href="https://santodomingo.espe.edu.ec/ingenieria-en-biotecnologia/"><img 
+                        src="./img/Logo_ESPE.png"width="70"></a>
+
+                    -->
+                </div>
+
+            </div>
+        </nav>
+    
+    </header>
+
+<body>
+
+    <img style=" width: 100%; " class="img-fluid" src="./img/Portada.jpeg" />
+    <br>
+    <br>
+    <br>
+    <hr color="orange" size=56px style="height:2px">
+    <div class="p-5">
+        <center><label>Este es un proyecto de carácter social de código Nro. CE-GNP-0025-2021, aprobado
+                mediante Resolución ESPE-CA-RES-2022-007 del 3 de febrero del 2022, tiene como
+                fin: <br>
+                Mejorar la calidad de vida disminuyendo el índice de casos de enfermedades
+                gastrointestinales por medio de la concienciación, capacitando y difundiendo en la
+                comunidad las buenas prácticas de almacenamiento y uso del agua para consumo de
+                la parroquia de Puerto Limón.</label></center>
+    </div>
+        <hr color="orange" size=6 style="height:2px">
+    </div>
+    <div class="p-5">
+        <label>Los objetivos que se esperan alcanzar con la ejecución del proyecto son:</label>
+        <p><br>
+            Identificar y reconocer la Juntas de Agua, captaciones y reservorios utilizado para la
+            dotación de agua a la parroquia de Puerto Limón. <br><br>
+            Caracterizar las aguas consumidas por la Parroquia Puerto Limón mediante análisis
+            fisicoquímicos y microbiológicos.<br><br>
+            Concientización a la comunidad sobre la calidad, almacenamiento y uso de
+            agua de consumo de la Parroquia Puerto Limón mediante la concientización y
+            difusión de los diferentes cuidados y posibles riesgos del consumo de agua no
+            tratada.
+        </p>
+    </div>
+
+    <hr color="orange" class="auto-style3" size=6 style="height:2px"/>
+
+    <br>
+    <br>
+    <img style="max-width: 60%; max-height: 60%; display:block; margin:auto" class="img-fluid"
+        src="./img/f1-laprimavera.jpeg" />
+
+    
+    <div class="p-5">
+        <label>Las comunidades de la parroquia Puerto Limón que son parte del presente proyecto son: <br></label>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <ul>
+                        <li>Puerto Limón</li>
+                        <li>San Jacinto</li>
+                        <li>Omnívoro</li>
+                        <li>Palo Blanco</li>
+                        <li>San Remo</li>
+                        <li>La Polvareda</li>
+                        <li>San Luis</li>
+                        <li>Vicente Rocafuerte</li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <ul>
+                        <li>La Independencia</li>
+                        <li>Recinto El Naranjito</li>
+                        <li>Santa Cecilia</li>
+                        <li>Copal</li>
+                        <li>Copalito</li>
+                        <li>La Unión</li>
+                        <li>San Isidro de Peripa</li>
+                        <li>Comuna Tsáchila El Naranjo</li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <ul>
+                        <li>El Naranjo</li>
+                        <li>Numancia</li>
+                        <li>San Juan</li>
+                        <li>Progreso</li>
+                        <li>La Providencia</li>
+                        <li>Tahuazo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr color="orange" class="auto-style3" size=6 style="height:2px">
+    
+    <div class="p-5">
+        <h4>
+            Fase 1: Levantamiento de información (Encuestas)
+        </h4>
+        <p>
+            En la fase 1 del proyecto, se llevó a cabo el diseño del aplicativo y la creación de encuestas que se aplicarían a las comunidades. Asimismo, se realizaron pruebas para verificar su correcto funcionamiento. De manera paralela, se coordinó y recopiló información previa para poder organizar las visitas correspondientes para las encuestas.
+            Finalmente, del 19 al 22 de septiembre de 2022, se realizaron visitas a todas las comunidades con el fin  aplicar la encuesta y así obtener información relevante sobre los consumidores del recurso agua y llevar a cabo la recolección de datos iniciales.
+        </p>
+    </div>
+
+    <img style="max-width: 60%; max-height: 60%; display:block; margin:auto" class="img-fluid"
+        src="./img/fase-1.jpg" />
+        <br>
+        <br>
+    <hr color="orange" class="auto-style3" size=6 style="height:2px">
+
+    <div class="p-5">
+        <h4>
+            Fase 2: Toma de muestras y realización de ensayos, etapa lluviosa
+        </h4>
+        <p>
+            Después de recopilar la información sobre las fuentes y usos del recurso en la primera fase, se procedió a revisar, depurar y analizar estadísticamente los datos. Este proceso permitió plantear el diseño de muestreo que se aplicaría a las condiciones reales del campo.
+        </p>
+        <p>
+            Luego de seleccionar los usuarios que serían muestreados en cada comunidad y realizar las respectivas planificaciones, se recolectaron las muestras durante los días 6 al 21 de marzo del 2023. Estas muestras fueron sometidas a ensayos fisicoquímicos y microbiológicos, los cuales serán tratados estadísticamente y alimentados a la base de datos de la plataforma web.
+        </p>
+        <p>
+            En resumen, se llevó a cabo una revisión y análisis de los datos recopilados en la primera fase para diseñar el muestreo adecuado, y posteriormente se recolectaron muestras para realizar ensayos y alimentar la base de datos correspondiente.
+        </p>
+    </div>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" >
+          <div class="carousel-item active"  align="center">
+            <img class="d-block recorte"  width="400px" height="380px"  src="./img/fase-2-4.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item" align="center">
+            <img class="d-block imgC"  width="400px" height="380px" src="./img/fase-2.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item " align="center">
+            <img class="d-block imgC" width="400px" height="380px" src="./img/fase-2-3.jpg" alt="Third slide">
+          </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <br>
+    <br>
+
+    <div id="footer"></div>
+    
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+
+    <script>
+        $(function(){
+        $("#footer").load("footer.html"); 
+        });
+    </script> 
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,283 @@
+<?php
+//require_once "./php/mapaB.php";
+require_once "./php/conexionM.php";
+
+// Iniciar sesión para mantener el término de búsqueda
+session_start();
+
+// Procesar búsqueda si se envió el formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buscar'])) {
+    $_SESSION['termino_busqueda'] = $_POST['buscar'];
+} elseif (isset($_GET['mostrar_todo'])) {
+    $_SESSION['termino_busqueda'] = '';
+}
+
+$termino_busqueda = $_SESSION['termino_busqueda'] ?? '';
+?>
+
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+        crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="css/equipo.css">
+    <style>
+        .navbar-nav li:hover>ul.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu>.dropdown-menu {
+            top: 0;
+            left: -95%;
+            margin-top: 3px;
+        }
+
+        .navbar-nav li:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-submenu:hover>.dropdown-menu {
+            display: block;
+        }
+
+        /*girar el símbolo de intercalación al pasar el mouse*/
+        .dropdown-menu>li>a:hover:after {
+            text-decoration: underline;
+            transform: rotate(-90deg);
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 10%;
+            padding-right: 1%;
+        }
+
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .card-header {
+            font-weight: 600;
+        }
+
+        @media (max-width: 767px) {
+            .image-container {
+                display: none;
+            }
+        }
+    </style>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid" style="margin-left: 10px;">
+                <a class="navbar-brand" href="https://santodomingo.espe.edu.ec/ingenieria-en-biotecnologia/">
+                    <img src="./img/SantoDomingo1.png" class="img-fluid" width="350">
+                    <img style="padding-left: 20px;" src="./img/logo2sinfondo.png" class="img-fluid" width="115">
+
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07"
+                    aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample07" style="flex-grow: 0; padding-right: 10px;">
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./mapa.php?mostrar_todo=ok">Censo</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Resultados
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="./norma.html">Norma INEN 1108</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./registros.php?mostrar_todo=ok">Registros</a></li>
+
+                                <!-- Fase 1 -->
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Fase 1</a>
+                                    <ul class="dropdown-menu">
+                                        <!-- Microbiológico (Fase 1) -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Microbiológico</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="./mapas/mapa-2.php">Coliformes
+                                                        totales</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Fisico Químico (Fase 1) -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Fisico Químico</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="./mapas/mapa-3.php">pH</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-4.php">Turbiedad</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-5.php">Color</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-6.php">Cloro libre
+                                                        residual</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-9.php">Nitratos</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-10.php">Nitritos</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- Fase 2 -->
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Fase 2</a>
+                                    <ul class="dropdown-menu">
+                                        <!-- Microbiológico (Fase 2) -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Microbiológico</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item"
+                                                        href="./mapas/mapa-2-fase2.php">Coliformes totales</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <!-- Fisico Químico (Fase 2) -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Fisico Químico</a>
+                                            <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="./mapas/mapa-3-fase2.php">pH</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-4-fase2.php">Turbiedad</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-5-fase2.php">Color</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-6-fase2.php">Cloro libre residual</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-9-fase2.php">Nitratos</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-10-fase2.php">Nitritos</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./equipo.html">Equipo</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+    </header>
+    <br>
+    <!-- En la sección del main, reemplaza los dos formularios con este único formulario -->
+<main role="main">
+    <div class="container">
+        <!-- Encabezado descriptivo -->
+        <div class="text-center mb-4">
+            <h2 class="display-5">Resultados de Análisis de Agua</h2>
+            <p class="lead">Comparación entre períodos lluviosos y secos</p>
+        </div>
+
+        <!-- Filtro único -->
+        <div class="card shadow mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-search"></i> Buscar en ambas fases
+                </h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="registros.php" class="mb-4">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="buscar" name="buscar"
+                                    value="<?= htmlspecialchars($termino_busqueda) ?>"
+                                    placeholder="Buscar por código, barrio o referencia...">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-search"></i> Buscar
+                                </button>
+                                <a href="registros.php?mostrar_todo=ok" class="btn btn-secondary ml-2">
+                                    <i class="fas fa-list"></i> Mostrar todos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Fase 1 - Lluviosa -->
+        <div class="card shadow mb-5">
+            <div class="card-header bg-info text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-cloud-rain"></i> Fase 1 - Muestras en período lluvioso
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> Muestras recolectadas entre septiembre 2022 - marzo 2023
+                </div>
+                <?php include('php/buscar-2M.php'); ?>
+            </div>
+        </div>
+
+        <!-- Fase 2 - Seca -->
+        <div class="card shadow">
+            <div class="card-header bg-warning text-dark">
+                <h4 class="mb-0">
+                    <i class="fas fa-sun"></i> Fase 2 - Muestras en período seco
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <i class="fas fa-info-circle"></i> Muestras recolectadas entre junio - septiembre 2023
+                </div>
+                <?php include('php/buscar-final.php'); ?>
+            </div>
+        </div>
+    </div>
+    <br><br>
+</main>
+
+    <div id="footer"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous">
+        </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+
+    <script>
+        $(function () {
+            $("#footer").load("footer.html");
+        });
+    </script>
+
+    </body>
+
+</html>

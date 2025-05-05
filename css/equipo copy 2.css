@@ -1,0 +1,205 @@
+.nombre-fase {
+  text-align: left;
+  padding: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: left;
+  font-weight: bold;
+}
+
+.contenedor{
+  padding:20px;
+  display: grid;
+}
+
+.titulo{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.bio{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  background-color: #cccccc; 
+}
+
+.itin{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  background-color: #cccccc;
+}
+
+.tipo-desarrollador{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 12.5px;
+  font-weight: bold;
+}
+
+.semestre{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.segunda-fase {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 17%;
+  /* justify-content: center; */
+  background-color: #F1F1F1;
+  padding: 30px;
+}
+
+.desarrollador{
+  align-items: center;
+}
+
+.foto-desarrollador{
+  justify-content: center;
+}
+
+.foto {
+  border-radius: 100px;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 8px 6px -6px black;
+  
+}
+
+.info-desarrollador {
+  text-align: center;
+}
+
+.contact{
+  position: relative;
+  width: 100%;
+  color:#FFF; 
+  text-align:center;
+  bottom:0px;
+  margin-bottom: 0px;
+}
+
+.encuestadores{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+.encuestadores-fase1{
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  column-gap: 1%;
+  row-gap: 60px ;
+  justify-content: center;
+  background-color: #F1F1F1;
+  padding: 30px;
+}
+
+.Katherin{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 14%;
+  justify-content: center;
+  background-color: #F1F1F1;
+  padding: 30px;
+}
+
+@media only screen and (min-width: 200px) {
+  .nombre-fase {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      text-align: center;
+  }
+
+  .segunda-fase {
+      grid-template-columns: repeat(1, auto);
+      justify-content: center;
+      row-gap: 60px;
+  }
+
+  .encuestadores-fase1{
+      grid-template-columns: repeat(1, auto);
+      justify-content: center;
+      row-gap: 60px;
+  }
+
+  .Katherin{
+      grid-template-columns: repeat(1, auto);
+      justify-content: center;
+      row-gap: 60px;
+  }
+
+  .encuestadores{
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      text-align: center;
+  }
+
+  .foto-desarrollador{
+      text-align: center;
+  }
+}
+
+@media (min-width: 800px) {
+  .segunda-fase {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      column-gap: 20%;
+      row-gap: 60px;
+      justify-content: center;
+      background-color: #F1F1F1;
+      padding: 30px;
+  }
+
+  .encuestadores-fase1{
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      column-gap: 12%;
+      row-gap: 60px ;
+      justify-content: center;
+      background-color: #F1F1F1;
+      padding: 30px;
+  }
+  
+  .Katherin{
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      column-gap: 12%;
+      justify-content: center;
+      background-color: #F1F1F1;
+      padding: 30px;
+  }
+
+  .encuestadores{
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      text-align: left;
+      padding: 10px;
+  }
+
+  .foto-desarrollador{
+      text-align: center;
+  }
+
+  .nombre-fase {
+      text-align: left;
+      padding: 10px;
+      font-family: 'Times New Roman', Times, serif;
+      text-align: left;
+      font-weight: bold;
+  }
+  
+}
+
+.contact {
+  position: relative;
+  width: 100%;
+  color: #FFF;
+  text-align: center;
+  bottom: 0px;
+  margin-bottom: 0px;
+}
+
+

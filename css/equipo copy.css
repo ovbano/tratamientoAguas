@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+body{
+    background: rgb(241, 241, 241);
+    background: linear-gradient(0deg, rgb(46, 175, 109) 0%, rgb(46, 175, 109) 100%);
+}
+
+.heading {
+  font-size: 60px;
+  color: rgb(255 255 255);
+}
+
+.heading span {
+  font-style: italic;
+  font-size: 30px;
+}
+
+.profiles {
+  display: grid;
+  justify-content: space-around;
+  margin: 20px 80px;
+  column-gap: 102px;
+}
+
+.profile {
+  flex-basis: 260px;
+  column-gap: 202px;
+}
+
+.profile .profile-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  filter: grayscale(40%);
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.profile:hover .profile-img {
+  filter: grayscale(0);
+}
+
+.user-name {
+  margin-top: 30px;
+  font-size: 35px;
+}
+
+.profile h5, h3, p, big {
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  color: rgb(255, 255, 255);
+}
+td, h1, h4, b{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+.mb-5{
+  color: rgb(255, 255, 255);
+}
+
+.profile p {
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 1150px) {
+  .profiles {
+    flex-direction: column;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile p {
+    text-align: center;
+    margin: 20px 60px 80px 60px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .heading {
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    text-align: left;
+  }
+
+  .heading span {
+    font-size: 15px;
+  }
+
+  .profiles {
+    display: grid;
+    margin: 20px 0;
+    grid-template-columns: repeat(4, auto);
+    column-gap: 40px;
+    text-align: center;
+
+  }
+
+  .profile p {
+    margin: 20px 10px 80px 10px;
+    text-align: center;
+  }
+
+  .profiles-1{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    text-align: center;
+  }
+}
+

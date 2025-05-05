@@ -1,0 +1,123 @@
+<style>
+    .navbar-nav li:hover>ul.dropdown-menu {
+        display: block;
+        padding-top: 10px !important;
+    }
+
+    .dropdown-submenu {
+        position: relative;
+    }
+
+    .dropdown-submenu>.dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+    }
+
+    /*girar el símbolo de intercalación al pasar el mouse*/
+    .dropdown-menu>li>a:hover:after {
+        text-decoration: underline;
+        transform: rotate(-90deg);
+    }
+</style>
+<header>
+    <nav class="navbar navbar-expand-lg bg-light ">
+        <div class="container-fluid">
+            <ul class="navbar-nav ms-auto">
+            <li class="">
+                <a class=" link-light" href="#"><b>...................</b></a>
+            </li>
+            </ul>
+
+            <a class=" navbar-brand" href="https://santodomingo.espe.edu.ec/ingenieria-en-biotecnologia/"><img
+                    src="img/SantoDomingo1.png" class="img-fluid" width="350"></a>
+            <button class="navbar-toggler bg-success" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+
+                    c
+                    <li class="nav-item">
+                        <a class="nav-link link-dark" href="mapa.php?mostrar_todo=ok">Encuestas</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link link-dark dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Resultados
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item " href="norma.html">Norma INEN 1108</a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item " href="registros.php?mostrar_todo=ok">Registros</a>
+                            </li>
+
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Microbiológico
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="./mapas/mapa-2.php">Coliformes totales</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Fisico Químico</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-submenu">
+
+                                    <li><a class="dropdown-item" href="./mapas/mapa-3.php">pH</a></li>
+                                    <li><a class="dropdown-item" href="./mapas/mapa-4.php">Turbiedad</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="./mapas/mapa-5.php">Color</a></li>
+                                    <li><a class="dropdown-item" href="./mapas/mapa-6.php">Cloro libre
+                                            residual</a></li>
+
+                                    <li><a class="dropdown-item" href="./mapas/mapa-9.php">Nitratos</a></li>
+                                    <li><a class="dropdown-item" href="./mapas/mapa-10.php">Nitritos</a>
+                                    </li>
+
+                            </li>
+                            <!--  <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">No exigidos por la norma
+                                                INEN
+                                                1108</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="./mapas/mapa-7.php">Conductividad</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-12.php">Dureza</a></li>
+                                                <li><a class="dropdown-item" href="./mapas/mapa-11.php">Temperatura</a>
+                                                </li>
+                                            </ul>
+                                        </li>-->
+                        </ul>
+                    </li>
+                </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-dark" href="equipo.html">Equipo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-dark" href="contacto.html">Contacto</a>
+                </li>
+                <li class="">
+                    <a class=" link-light" href="#"><b>....................</b></a>
+                </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+
+
+</header>
