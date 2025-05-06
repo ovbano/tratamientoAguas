@@ -1,24 +1,15 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'usuario/proyecto',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b0275f4b710f8da897660c2f91ab0f74cb7bdd77',
+        'reference' => '99b2e4cba1d4653242559ee062871564f463fc49',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'b0275f4b710f8da897660c2f91ab0f74cb7bdd77',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'mongodb/mongodb' => array(
             'pretty_version' => '1.19.1',
             'version' => '1.19.1.0',
@@ -52,6 +43,15 @@
             'reference' => '4a4cfc2d253c21a5ad0e53071df248ed48c6ce5c',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-php81',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'usuario/proyecto' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '99b2e4cba1d4653242559ee062871564f463fc49',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
